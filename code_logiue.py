@@ -19,7 +19,10 @@ day_zero = date(2026, 1, 1)
 
 
 def yemba_day(target_date):
-
+    """
+    ce reste modulo donc je vous parlais. Et comme c# n'accepte pas d'index negatif, on avais fait
+    indexY = (delta_days % len(JourYemba)+len(JourYemba))%len(JourYemba)
+    """
     delta_days = (target_date - day_zero).days
     indexY = delta_days % len(JourYemba)
     indexF = delta_days % len(JourFrancais)
@@ -27,12 +30,8 @@ def yemba_day(target_date):
 
 # Example usage
 if __name__ == "__main__":
-    # Test for first 10 days of January 2026
+    
     for d in range(1, 32):
         current_date = date(2025, 12, d)
         y_day = yemba_day(current_date)
         print(f"{current_date}: day = {y_day[0]} - {y_day[1]}")
-
-    # Test for any arbitrary date
-    test_date = date(2026, 2, 15)
-    print(f"{test_date}: day = {yemba_day(test_date)}")
